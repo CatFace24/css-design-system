@@ -1,0 +1,227 @@
+/* CMD + forward slash to write a comment */
+/* https://www.youtube.com/watch?v=lRaL-8qZ0mM */
+
+/* ------------------- */
+/* Custom properties */
+/* ------------------- */
+
+:root {
+    /* Establishing color variables in HSL values */
+    --color-dark: 230 35% 7%;
+    --color-light: 231 77% 90%;
+    --color-white: 0 0% 100%;
+
+    /* Establishing font sizes */
+    /* rem is used for better accessibility, in case users adjusted their view settings before */
+    /* Pixel values could override that */
+    /* The associated rem values can be retrieved by: px/16 (eg: 150px/16 = 9.375rem */
+    --font-size-900: 9.375rem;
+    --font-size-800: 6.25rem;
+    --font-size-700: 3.5rem;
+    --font-size-600: 2rem;
+    --font-size-500: 1.75rem;
+    --font-size-400: 1.125rem;
+    --font-size-300: 1rem;
+    --font-size-200: 0.875rem;
+
+    /* Font families */
+    --font-family-serif: "Bellefair", serif;
+    --font-family-sans-cond: "Barlow Condensed", sans-serif;
+    --font-family-sans-normal: "Barlow", sans-serif;
+}
+
+
+/* ------------------- */
+/* Reset */
+/* We do CSS resets because not all browsers apply the same default rules. They may be similar, but not exact. */
+/* https://andy-bell.co.uk/a-modern-css-reset/ */
+/* ------------------- */
+
+/* Box sizing, selecting everything, including pseudo-elements(?) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+p,
+img,
+figure,
+picture {
+    margin: 0;
+}
+
+/* Removing bold in headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 300;
+}
+
+/* Set up body */
+body {
+    background: hsl( var(--color-dark));
+    color: hsl( var(--color-white));
+    font-family: var(--font-family-sans-normal);
+    font-size: var(--font-size-400);
+    /* Default line height for browsers is 1.4, which can be small */
+    line-height: 1.5; 
+    /* vh means viewport height, 100vh means the height of the body will be 100% of the viewport's height */
+    min-height: 100vh;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    /* Ensures that the images will shrink as the viewport/parent gets smaller */
+    max-width: 100%;
+    /* Helps with some spacing issues */
+    display: block;
+}
+
+/* Make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    /* Ensuring all these elements inherit the font properties */
+    font: inherit;
+}
+
+/* Remove animations for people who've turned them off, either at browser or OS level */
+/* Includes elements with constant movement, parallax motion, etc. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ------------------- */
+/* Utility classes */
+/* ------------------- */
+
+/* General utiliy classes */
+
+.flex {
+    /* Lines elements horizontally?*/
+    display: flex;
+    /* custom property: --gap */
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    /* Lines elements vertically? */
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+/* spacing? */
+/* 
+"* + *" or "*:not(:first-child)" selects the last child and 
+looks for adjacent siblings (of the child selector) that come before it 
+This is done to ensure the topmost and 
+bottommost margins are the same and not doubled
+*/
+.flow-v > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+    /* outline: 1px solid red; */
+}
+
+
+.flow-h > *:where(:not(:first-child)) {
+    margin-left: var(--flow-space, 1rem);
+    /* outline: 1px solid red; */
+}
+
+.container {
+    /* -inline refers to the left and right side, so 2em is applied for left and right paddings */
+    padding-inline: 2em;
+    /* auto margin ensures elements are placed in the middle */
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+/* For accessibility, for screen readers that are reading off the page for the visually impaired */
+/* This will visually hide content for visually abled users, but this content will be accessible for those using a screen reader */
+/* For example, to read a button with no text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+
+}
+
+/* Colours, where we use the color variables / HSL */
+.bg-dark { background-color: hsl( var(--color-dark));}
+.bg-accent { background-color: hsl( var(--color-light)); }
+.bg-white { background-color: hsl( var(--color-white)); }
+
+.text-dark { color: hsl( var(--color-dark)); }
+.text-accent { color: hsl( var(--color-light)); }
+.text-white { color: hsl( var(--color-white)); }
+
+
+/* Typography */
+.font-family-serif { font-family: var(--font-family-serif); } 
+.font-family-sans-cond { font-family: var(--font-family-sans-cond); } 
+.font-family-sans-normal { font-family: var(--font-family-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.font-size-900 { font-size: var(--font-size-900); }
+.font-size-800 { font-size: var(--font-size-800); }
+.font-size-700 { font-size: var(--font-size-700); }
+.font-size-600 { font-size: var(--font-size-600); }
+.font-size-500 { font-size: var(--font-size-500); }
+.font-size-400 { font-size: var(--font-size-400); }
+.font-size-300 { font-size: var(--font-size-300); }
+.font-size-200 { font-size: var(--font-size-200); }
+
+/* Changing line height for bigger font sizes */
+.font-size-900,
+.font-size-800,
+.font-size-700,
+.font-size-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+    font-family: var(--font-family-sans-cond);
+    font-size: var(--font-size-500);
+    letter-spacing: 4.72px;
+    text-transform: uppercase;
+}
+
+.numbered-title span{
+    margin-right: .5em;
+    font-weight: 700;
+    color: hsl(var(--color-white) / 25%);
+}
