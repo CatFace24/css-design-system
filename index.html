@@ -101,6 +101,81 @@
             </div>
         </section>
 
+        <section class="flow-h" id="interactive-elements" style="margin: 4rem 0">
+            <h2 class="numbered-title"><span>03</span> Interactive elements</h2>
+            
+            <!-- navigation -->
+            <div>
+                <nav>
+                    <ul class="primary-navigation underline-indicators flex">
+                        <li class="active">
+                            <a class="uppercase text-white letter-spacing-2" href="#"><span>01</span>Active</a>
+                        </li>
+                        <li class="underline-indicators-hover">
+                            <a class="uppercase text-white letter-spacing-2" href="#"><span>02</span>Hovered</a>
+                        </li>
+                        <li>
+                            <a class="uppercase text-white letter-spacing-2" href="#"><span>03</span>Idle</a>
+                        </li>
+                    </ul>
+                </nav>
+                
+            </div>
+            
+            <div class="flex" style="margin: 5rem 5rem; justify-content: space-between;">
+                <div class="flow-v grid" style="margin-bottom: 50vh; flex-basis: 100%; --flow-space: 5rem; place-items: center;">
+                    <div class="grid" style="place-items: center;">
+                        <!-- explore button, using a lot of utility classes -->
+                        <a href="#" class="large-button uppercase font-family-serif font-size-600 text-dark bg-white">Explore</a>
+                        <p class="text-accent font-size-300 font-family-sans" style="margin-top: 1rem;">Landing Page Main Button - Idle</p>
+                    </div>
+
+                    <div class="grid" style="place-items: center;">
+                        <!-- explore button, using a lot of utility classes -->
+                        <a href="#" class="large-button demo-button uppercase font-family-serif font-size-600 text-dark bg-white">Explore</a>
+                        <p class="text-accent font-size-300 font-family-sans" style="margin-top: 1rem;">Landing Page Main Button - Hover</p>
+                    </div>
+
+                </div>
+
+                <div class="flow-v grid" style="margin-bottom: 50vh; flex-basis: 100%; --flow-space: 5rem; place-items: center;">
+                    <div class="grid" style="place-items: center;">
+                          <!-- Tabs, interactive section, so button element is used -->
+                        <div class="tab-list underline-indicators flex" style="--gap: 1.5rem;">
+                            <button onclick="window.location.href='#';" aria-selected="true" class="uppercase font-family-sans-cond text-accent bg-dark letter-spacing-2">Moon</button>
+                            <button onclick="window.location.href='#';" aria-selected="false" class="uppercase font-family-sans-cond text-accent bg-dark letter-spacing-2 underline-indicators-hover">Saturn</button>
+                            <button onclick="window.location.href='#';" aria-selected="false" class="uppercase font-family-sans-cond text-accent bg-dark letter-spacing-2">Pluto</button>
+                        </div>
+                        <p class="text-accent font-size-300 font-family-sans" style="margin-top: 1rem;">Tabs (Active, Hover, & Idle)</p>
+                    </div>
+                  
+
+                    <div class="grid" style="place-items: center;">
+                        <!-- Dots, interactive as well -->
+                        <div class="dot-indicators flex" style="--gap: 1rem;">
+                            <button onclick="window.location.href='#';" aria-selected="true"><span class="sr-only">Slide title</span></button>
+                            <button onclick="window.location.href='#';" aria-selected="false" class="dot-indicators-hover"><span class="sr-only">Slide title</span></button>
+                            <button onclick="window.location.href='#';" aria-selected="false"><span class="sr-only">Slide title</span></button>
+                        </div>
+ 
+                        <p class="text-accent font-size-300 font-family-sans" style="margin-top: 1rem;">Slider 1 States (Active, Hover, & Idle)</p>
+                    </div>
+
+            
+                    <div class="grid" style="place-items: center;">
+                        <!-- Numbers -->
+                        <div class="number-indicators grid" style="--gap: 1.5rem;">
+                            <button onclick="window.location.href='#';" aria-selected="true">1</button>
+                            <button onclick="window.location.href='#';" aria-selected="false" class="number-indicators-hover">2</button>
+                            <button onclick="window.location.href='#';" aria-selected="false">3</button>
+                        </div>
+ 
+                        <p class="text-accent font-size-300 font-family-sans" style="margin-top: 1rem;">Slider 2 States (Active, Hover, & Idle)</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
 
     </div>
 
